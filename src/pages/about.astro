@@ -1,4 +1,5 @@
 ---
+import "../styles/global.css";
 const PAGE_TITLE = "ABOUT ME";
 
 const IDENTITY = {
@@ -15,6 +16,10 @@ const SKILLS = ["HTML", "CSS", "JavaScript", "Python", "Astro"];
 const HAPPY = true;
 const FINISHED = false;
 const GOAL = 3;
+
+const SKILLCOLOR = "navy";
+const FONTWEIGHT = "BOLD";
+const TEXTCASE = "uppercase";
 ---
 
 <html lang="en">
@@ -22,6 +27,17 @@ const GOAL = 3;
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>{PAGE_TITLE}</title>
+    <style define:vars={{ SKILLCOLOR, FONTWEIGHT, TEXTCASE }}>
+      h1 {
+        color: purple;
+        font-size: 4rem;
+      }
+      .skill {
+        color: var(--SKILLCOLOR);
+        font-weight: var(--FONTWEIGHT);
+        text-transform: var(--TEXTCASE);
+      }
+    </style>
   </head>
   <body>
     <a href="/">Home</a>
@@ -65,7 +81,7 @@ const GOAL = 3;
 
     <p>Estos son algunos de los lenguajes de programacion que manejo:</p>
     <ul>
-      {SKILLS.map((skill) => <li>{skill}</li>)}
+      {SKILLS.map((skill) => <li class="skill">{skill}</li>)}
     </ul>
 
     {HAPPY && <p>I am happy to be learning Astro!</p>}
