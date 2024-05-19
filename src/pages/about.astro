@@ -1,7 +1,9 @@
 ---
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 import "../styles/global.css";
-const PAGE_TITLE = "ABOUT ME";
 
+const PAGE_TITLE = "Sobre mi";
 const IDENTITY = {
   firstName: "Rafael",
   lastName: "Benitez",
@@ -40,9 +42,8 @@ const TEXTCASE = "uppercase";
     </style>
   </head>
   <body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
+    <Navigation />
+
     <h1>{PAGE_TITLE}</h1>
     <h2>y mi nuevo sitio en Astro</h2>
 
@@ -95,5 +96,9 @@ const TEXTCASE = "uppercase";
         <p>My goal is not 3 days.</p>
       )
     }
+    <Footer />
+    <script>
+      import "../scripts/menu.js";
+    </script>
   </body>
 </html>
