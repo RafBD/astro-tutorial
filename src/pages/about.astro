@@ -1,22 +1,83 @@
 ---
+const PAGE_TITLE = "ABOUT ME";
 
+const IDENTITY = {
+  firstName: "Rafael",
+  lastName: "Benitez",
+  country: "Mexico",
+  occupation: "Estudiante",
+  carreer: "Tecnologias de la Informacion en los Negocios",
+  hobbies: ["la musica", "Programar", "jugar videojuegos", "jugar basketball"],
+};
+
+const SKILLS = ["HTML", "CSS", "JavaScript", "Python", "Astro"];
+
+const HAPPY = true;
+const FINISHED = false;
+const GOAL = 3;
 ---
 
-<body>
-  <a href="/">Home</a>
-  <a href="/about/">About</a>
-  <a href="/blog/">Blog</a>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{PAGE_TITLE}</title>
+  </head>
+  <body>
+    <a href="/">Home</a>
+    <a href="/about/">About</a>
+    <a href="/blog/">Blog</a>
+    <h1>{PAGE_TITLE}</h1>
+    <h2>y mi nuevo sitio en Astro</h2>
 
-  <h1>About Me</h1>
-  <h2>... and my new Astro site!</h2>
+    <p>
+      Estoy realizando el tutorial de Astro. Esta es la segunda pagina de mi
+      website y es la primera vez que hago algo con Astro.
+    </p>
 
-  <p>
-    I am working through Astro's introductory tutorial. This is the second page
-    on my website, and it's the first one I built myself!
-  </p>
+    <p>
+      Este sitio sera actualizado con mas contenido en el futuro. Por ahora solo
+      estare completando el tutorial pero en el futuro agregare mas contenido.
+      Por lo que si te interesa saber mas de mi, no dudes en regresar y ver como
+      ha evolucionado mi sitio :D
+    </p>
 
-  <p>
-    This site will update as I complete more of the tutorial, so keep checking
-    back and see how my journey is going!
-  </p>
-</body>
+    <p>Te dejo unos datos sobre mi</p>
+    <ul>
+      <li>
+        Mi nombre es {IDENTITY.firstName}
+        {IDENTITY.lastName}
+      </li>
+      <li>
+        Soy de {IDENTITY.country} y actualmente soy {IDENTITY.occupation} de {
+          IDENTITY.carreer
+        }
+      </li>
+      {
+        IDENTITY.hobbies.length >= 2 && (
+          <li>
+            Dos de mis hobbies son: {IDENTITY.hobbies[2]} y{" "}
+            {IDENTITY.hobbies[3]}
+          </li>
+        )
+      }
+    </ul>
+
+    <p>Estos son algunos de los lenguajes de programacion que manejo:</p>
+    <ul>
+      {SKILLS.map((skill) => <li>{skill}</li>)}
+    </ul>
+
+    {HAPPY && <p>I am happy to be learning Astro!</p>}
+
+    {FINISHED && <p>I finished this tutorial!</p>}
+
+    {
+      GOAL === 3 ? (
+        <p>My goal is to finish in 3 days.</p>
+      ) : (
+        <p>My goal is not 3 days.</p>
+      )
+    }
+  </body>
+</html>
